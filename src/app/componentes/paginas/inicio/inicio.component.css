@@ -1,0 +1,17 @@
+body {
+    
+}
+.container {
+    /* min-height: 100%; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* background-image: linear-gradient(335deg,
+    #e0497b 0, #ce427e 10%, #b63b7d 20%,
+    #9a3376 30%, #7b2a6a 40%, #591f59 50%, #3a1446 60%,
+    #200b35 70%, #0f0026 80%, #00001b 90%, #000011 100%); */
+}
+
+.mensajeDeBienvenida {
+    font-size: 1500%;
+    margin-top: -5px;
+}
