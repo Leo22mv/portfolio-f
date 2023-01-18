@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MsjBienvenidaComponent implements OnInit {
 
+  desarrollador: string = "desarrollador { "
+  web: string = "<web>"
+  llave: string = "}"
+
   idioma: string = "spanish";
 
   constructor() { }
