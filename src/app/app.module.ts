@@ -7,6 +7,8 @@ import { InicioComponent } from './componentes/paginas/inicio/inicio.component';
 import { AjustesComponent } from './componentes/botones/ajustes/ajustes.component';
 import { MsjBienvenidaComponent } from './componentes/texto/msj-bienvenida/msj-bienvenida.component';
 import { NavComponent } from './componentes/nav/nav.component';
+import { Error404Component } from './componentes/paginas/error404/error404.component';
+import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NavComponent } from './componentes/nav/nav.component';
     InicioComponent,
     AjustesComponent,
     MsjBienvenidaComponent,
-    NavComponent
+    NavComponent,
+    Error404Component,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,
