@@ -1,1 +1,11 @@
-<p>proyectos works!</p>
+<div class="row">
+    <div class="col" ngClass="flex">
+        <h1 class="display-2">
+            Proyectos
+        </h1>
+    </div>
+</div>
+
+<div *ngFor="let proyecto of listaProyectos">
+    <app-proyecto [proyecto]="proyecto"></app-proyecto>
+</div>

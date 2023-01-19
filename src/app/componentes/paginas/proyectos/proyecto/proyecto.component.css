@@ -1,0 +1,15 @@
+.descripcion {
+    opacity: 0;
+    transition: 0.3s all;
+}
+.descripcion-mostrada {
+    /* visibility: inherit; */
+    transition: 0.3s all;
+}
+.foto {
+    transition: 0.3s all;
+}
+.foto2 {
+    transition: 0.3s all;
+    box-shadow: -8px 8px 8px #000;
+}

@@ -9,6 +9,7 @@ import { MsjBienvenidaComponent } from './componentes/texto/msj-bienvenida/msj-b
 import { NavComponent } from './componentes/nav/nav.component';
 import { Error404Component } from './componentes/paginas/error404/error404.component';
 import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.component';
+import { ProyectoComponent } from './componentes/paginas/proyectos/proyecto/proyecto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.co
     MsjBienvenidaComponent,
     NavComponent,
     Error404Component,
-    ProyectosComponent
+    ProyectosComponent,
+    ProyectoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<div class="row" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+    <div class="col-1"></div>
+    <div class="col-sm-5">
+        <div [class]="tema" style="width: 100%;" [ngClass]="foto">
+            <img src="{{ proyecto.urlImagen }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ proyecto.nombre }}</h5>
+            </div>
+          </div>
+    </div>
+    <div class="col-sm-5">
+        <div [class]="tema" style="width: 100%;" [ngClass]="descripcion">
+            <div class="card-body">
+              <p class="card-text">{{ proyecto.descripcion }}</p>
+              <a class="btn btn-primary" href="{{ proyecto.link }}" target="_blank">Abrir</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-1"></div>
+</div>
