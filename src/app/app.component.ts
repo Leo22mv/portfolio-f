@@ -6,19 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  bg: string = "Logo-bg";
+  
   temaDark: boolean = false
   title = 'portfolio-f';
   actualizarTemaDark (evento: boolean){
     this.temaDark = evento;
     if (this.temaDark) {
       document.body.style.backgroundColor = "#212529";
-      document.body.style.color = "#f3f3f3";
-      this.bg = "Logo-bg-dark"
+      document.body.style.color = "#f8f9fa";
+      // document.getElementById("logobg").style.opacity = "0.3"
+      
     } else {
-      document.body.style.backgroundColor = "#f3f3f3";
+      document.body.style.backgroundColor = "#f8f9fa";
       document.body.style.color = "#212529";
-      this.bg = "Logo-bg"
+      
     }
   }
 }

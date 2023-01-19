@@ -28,11 +28,11 @@ export class NavComponent implements OnInit, OnChanges {
   cambiarTema() {
     if (this.temaDark) {
       this.temaS.navTema = "navbar bg-light fixed-top";
-      this.temaS.offCanvasTema = "offcanvas offcanvas-top show";  
+      this.temaS.offCanvasTema = "offcanvas offcanvas-top";  
       this.temaS.colorTexto = "textoLight";
     } else {
       this.temaS.navTema = "navbar bg-dark fixed-top";
-      this.temaS.offCanvasTema = "offcanvas offcanvas-top show text-bg-dark";
+      this.temaS.offCanvasTema = "offcanvas offcanvas-top text-bg-dark";
       this.temaS.colorTexto = "textoDark";
     }
     this.temaS.temaDark = !this.temaS.temaDark

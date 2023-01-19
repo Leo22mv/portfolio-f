@@ -1,0 +1,20 @@
+img {
+    width: 65%;
+}
+.contenedor {
+    position: absolute;
+    top: 35%;
+    /* right: 10% */
+}
+.display-2 {
+    line-height: 100%;
+    text-shadow: 1px 1px 2px gray;
+}
+.display-3 {
+    display: inline;
+    transition: 0.3s all;
+}
+.display-3:hover {
+    cursor: pointer;
+    text-shadow: 1px 1px 2px gray;
+}
