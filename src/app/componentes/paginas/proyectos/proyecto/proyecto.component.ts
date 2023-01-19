@@ -9,7 +9,9 @@ import { TemaServiceService } from 'src/app/services/tema-service.service';
 })
 export class ProyectoComponent implements OnInit {
 
-  tema: string = "card h-100"
+  temaCarta: string = this.temaS.temaCarta
+
+  tema: string = "card"
 
   foto: string = "foto"
   descripcion: string = "descripcion"
@@ -23,7 +25,7 @@ export class ProyectoComponent implements OnInit {
     repo: ""
   }
 
-  constructor() { }
+  constructor(private temaS:TemaServiceService) { }
 
   ngOnInit(): void {
   }
@@ -37,5 +39,4 @@ export class ProyectoComponent implements OnInit {
     this.descripcion = "descripcion"
     this.foto = "foto"
   }
-
 }

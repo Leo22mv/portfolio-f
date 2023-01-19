@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class TemaServiceService {
 
+  temaCarta: string = "cartaLight"
+
   temaDark: boolean = false;
 
   navTema: string = "navbar bg-light fixed-top"
