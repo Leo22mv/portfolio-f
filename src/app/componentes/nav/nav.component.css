@@ -50,9 +50,3 @@ input[type=checkbox]{
   label:active:after {
     width: 26px;
   }
-  .textoLigth {
-    color: #212529;
-  }
-  .textoDark {
-    color: #f3f3f3;
-  }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TemaServiceService } from 'src/app/services/tema-service.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  idioma: string = "spanish";
+  @Input() bg: string = "Logo-bg";
 
-  constructor() { }
+  constructor(private temaS: TemaServiceService) { }
 
   ngOnInit(): void {
   }

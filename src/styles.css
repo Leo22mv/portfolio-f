@@ -1,3 +1,9 @@
-body {
+/* body {
     background-color: #f3f3f3;
-}
+} */
+.textoLight {
+    color: #212529;
+  }
+  .textoDark {
+    color: #f3f3f3;
+  }

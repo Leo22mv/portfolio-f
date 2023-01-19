@@ -1,33 +1,47 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { TemaServiceService } from 'src/app/services/tema-service.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnChanges {
 
-  temaDark: boolean = false;
+  @Output() evento = new EventEmitter<boolean>()
 
-  navTema: string = "navbar bg-light fixed-top"
-  offCanvasTema: string = "offcanvas offcanvas-top"
-  colorTexto: string = "textoLight";
+  temaDark: boolean = this.temaS.temaDark;
 
-  constructor() { }
+  navTema: string = this.temaS.navTema;
+  offCanvasTema: string = this.temaS.offCanvasTema;
+  colorTexto: string = this.temaS.colorTexto;
+
+  constructor(private temaS: TemaServiceService, private router: Router) { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+  }
 
   ngOnInit(): void {
   }
 
   cambiarTema() {
     if (this.temaDark) {
-      this.navTema = "navbar bg-light fixed-top";
-      this.offCanvasTema = "offcanvas offcanvas-top";  
-      this.colorTexto = "textoLight";
+      this.temaS.navTema = "navbar bg-light fixed-top";
+      this.temaS.offCanvasTema = "offcanvas offcanvas-top show";  
+      this.temaS.colorTexto = "textoLight";
     } else {
-      this.navTema = "navbar bg-dark fixed-top";
-      this.offCanvasTema = "offcanvas offcanvas-top show text-bg-dark";
-      this.colorTexto = "textoDark";
+      this.temaS.navTema = "navbar bg-dark fixed-top";
+      this.temaS.offCanvasTema = "offcanvas offcanvas-top show text-bg-dark";
+      this.temaS.colorTexto = "textoDark";
     }
-    this.temaDark = !this.temaDark
+    this.temaS.temaDark = !this.temaS.temaDark
+
+    this.temaDark = this.temaS.temaDark;
+    this.navTema = this.temaS.navTema;
+    this.offCanvasTema = this.temaS.offCanvasTema;
+    this.colorTexto = this.temaS.colorTexto;
+
+    this.evento.emit(this.temaDark);
   }
 }
