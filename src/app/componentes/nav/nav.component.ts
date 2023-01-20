@@ -9,6 +9,7 @@ import { TemaServiceService } from 'src/app/services/tema-service.service';
 })
 export class NavComponent implements OnInit, OnChanges {
 
+  
   @Output() evento = new EventEmitter<boolean>()
 
   temaDark: boolean = this.temaS.temaDark;

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { IProyecto } from 'src/app/modelos/iproyecto.interface';
 import { TemaServiceService } from 'src/app/services/tema-service.service';
 
@@ -7,11 +8,11 @@ import { TemaServiceService } from 'src/app/services/tema-service.service';
   templateUrl: './proyecto.component.html',
   styleUrls: ['./proyecto.component.css']
 })
-export class ProyectoComponent implements OnInit {
+export class ProyectoComponent implements OnInit,OnChanges {
 
   temaCarta: string = this.temaS.temaCarta
 
-  tema: string = "card"
+  tema: any = this.claseCarta()
 
   foto: string = "foto"
   descripcion: string = "descripcion"
@@ -26,8 +27,20 @@ export class ProyectoComponent implements OnInit {
   }
 
   constructor(private temaS:TemaServiceService) { }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    this.claseCarta()
+  }
 
   ngOnInit(): void {
+  }
+
+  claseCarta() {
+    if (document.body.style.backgroundColor=="#212529") {
+      return "card text-bg-dark";
+    } else {
+      return "card"
+    }
   }
 
   mouseEnter() {

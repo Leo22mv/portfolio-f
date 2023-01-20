@@ -19,7 +19,7 @@
 h5, p {
     text-align: center;
 }
-.card-footer {
+.card-footer, .tecnologias {
     display: flex;
     justify-content: center;
 }
@@ -44,4 +44,7 @@ h5, p {
 }
 #segundaCard {
     margin-top: 50px;
+}
+p {
+    text-shadow: 1px 1px 2px #000;
 }
