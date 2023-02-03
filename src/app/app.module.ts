@@ -10,6 +10,7 @@ import { NavComponent } from './componentes/nav/nav.component';
 import { Error404Component } from './componentes/paginas/error404/error404.component';
 import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.component';
 import { ProyectoComponent } from './componentes/paginas/proyectos/proyecto/proyecto.component';
+import { ContactoComponent } from './componentes/paginas/contacto/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProyectoComponent } from './componentes/paginas/proyectos/proyecto/proy
     NavComponent,
     Error404Component,
     ProyectosComponent,
-    ProyectoComponent
+    ProyectoComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

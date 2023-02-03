@@ -37,9 +37,9 @@ export class ProyectoComponent implements OnInit,OnChanges {
 
   claseCarta() {
     if (document.body.style.backgroundColor=="#212529") {
-      return "card text-bg-dark";
+      return "card border-light";
     } else {
-      return "card"
+      return "card border-light"
     }
   }
 

@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactoComponent } from './componentes/paginas/contacto/contacto/contacto.component';
 import { Error404Component } from './componentes/paginas/error404/error404.component';
 import { InicioComponent } from './componentes/paginas/inicio/inicio.component';
 import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.component';
 
 const routes: Routes = [
+  {path: "contacto", component: ContactoComponent},
   {path: "proyectos", component: ProyectosComponent},
   {path: "inicio", component: InicioComponent},
   {path: "", redirectTo: "/inicio", pathMatch: "full"},

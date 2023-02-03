@@ -1,0 +1,45 @@
+.flex {
+    display: flex;
+    justify-content: center;
+}
+.flexx {
+    text-align: center;
+}
+h2 {
+    margin: 30px auto;
+    line-height: 100%;
+    text-shadow: 1px 1px 2px gray;
+    margin: 70px;
+}
+h3 {
+    text-shadow: 1px 1px 2px gray;
+    margin-bottom: 30px;
+}
+img {
+    transition: 0.2s all;
+    cursor: pointer;
+    width: 10%;
+}
+img:hover {
+    transition: 0.2s all;
+    filter: drop-shadow(2px 2px 2px gray);
+}
+a {
+    text-decoration: none;
+    color: #cacaca;
+    text-shadow: 1px 1px 1px gray;
+}
+.user {
+    opacity: 0;
+    transition: 0.5s all;
+}
+.user-mostrado {
+    transition: 0.5s all;
+}
+
+
+@media (max-width: 768px) {
+    img {
+        width: 30%;
+    }
+}
