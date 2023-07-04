@@ -1,5 +1,6 @@
 export interface IEducacion {
     nombre: string,
     descripcion: string,
-    link: string
+    link: string,
+    detalles: string
 }

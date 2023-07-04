@@ -1,0 +1,23 @@
+.flex {
+    display: flex;
+    justify-content: center;
+}
+h2 {
+    margin: 30px auto;
+    line-height: 100%;
+    text-shadow: 1px 1px 2px gray;
+    margin: 70px 70px 0 70px;
+    text-align: center;
+}
+.card-body {
+    margin-top: 50px;
+}
+.card-subtitle, .btn-lg {
+    margin-top: 30px;
+}
+.card-title {
+    margin-bottom: 10px;
+}
+.btn-sm {
+    margin-bottom: 40px;
+}

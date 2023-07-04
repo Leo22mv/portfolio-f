@@ -13,6 +13,7 @@ import { ProyectoComponent } from './componentes/paginas/proyectos/proyecto/proy
 import { ContactoComponent } from './componentes/paginas/contacto/contacto/contacto.component';
 import { EducacionComponent } from './componentes/paginas/educacion/educacion.component';
 import { ElementoComponent } from './componentes/paginas/educacion/elemento/elemento.component';
+import { OneComponent } from './componentes/paginas/educacion/detalles/one/one.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ElementoComponent } from './componentes/paginas/educacion/elemento/elem
     ProyectoComponent,
     ContactoComponent,
     EducacionComponent,
-    ElementoComponent
+    ElementoComponent,
+    OneComponent
   ],
   imports: [
     BrowserModule,

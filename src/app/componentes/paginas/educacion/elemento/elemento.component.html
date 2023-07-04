@@ -5,9 +5,9 @@
               <h5 class="card-title">{{ elemento.nombre }}</h5>
               <!-- <h6 class="card-subtitle mb-2 text-muted">1era etapa - Sé programar</h6> -->
               <p class="card-text">{{ elemento.descripcion }}</p>
-              <a href="{{ elemento.link }}" target="_blank" class="btn btn-outline-dark">Certificado</a>
+              <a href="{{ elemento.link }}" target="_blank" class="btn btn-outline-secondary">Certificado</a>
               <br>
-              <a href="#" class="card-link">Detalles</a>
+              <a routerLink="../{{ elemento.detalles }}" class="card-link">Detalles</a>
             </div>
     </div>
     <div class="col-sm-3"></div>

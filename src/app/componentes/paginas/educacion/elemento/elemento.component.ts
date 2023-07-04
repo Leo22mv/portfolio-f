@@ -12,6 +12,7 @@ export class ElementoComponent implements OnInit {
     nombre: "",
     descripcion: "",
     link: "",
+    detalles: ""
   }
 
   constructor() { }

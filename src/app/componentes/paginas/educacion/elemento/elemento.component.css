@@ -1,3 +1,14 @@
 .card-body {
     margin: 0px auto;
 }
+.card-link {
+    color: inherit;
+    transition: 0.2s all;
+}
+.card-link:hover {
+    /* color: black; */
+    text-shadow: 1px 1px 2px black;
+}
+.btn {
+    color: inherit;
+}

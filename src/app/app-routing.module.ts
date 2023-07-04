@@ -5,8 +5,11 @@ import { Error404Component } from './componentes/paginas/error404/error404.compo
 import { InicioComponent } from './componentes/paginas/inicio/inicio.component';
 import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.component';
 import { EducacionComponent } from './componentes/paginas/educacion/educacion.component';
+import { MsjBienvenidaComponent } from './componentes/texto/msj-bienvenida/msj-bienvenida.component';
+import { OneComponent } from './componentes/paginas/educacion/detalles/one/one.component';
 
 const routes: Routes = [
+  {path: "one", component: OneComponent},
   {path: "educacion", component: EducacionComponent},
   {path: "contacto", component: ContactoComponent},
   {path: "proyectos", component: ProyectosComponent},
