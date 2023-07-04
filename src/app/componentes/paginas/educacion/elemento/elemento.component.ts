@@ -9,7 +9,7 @@ import { IEducacion } from 'src/app/modelos/ieducacion.interface';
 export class ElementoComponent implements OnInit {
 
   @Input() elemento: IEducacion =  {
-    nombre: "a",
+    nombre: "",
     descripcion: "",
     link: "",
   }
