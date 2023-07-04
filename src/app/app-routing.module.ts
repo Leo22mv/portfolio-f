@@ -4,8 +4,10 @@ import { ContactoComponent } from './componentes/paginas/contacto/contacto/conta
 import { Error404Component } from './componentes/paginas/error404/error404.component';
 import { InicioComponent } from './componentes/paginas/inicio/inicio.component';
 import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.component';
+import { EducacionComponent } from './componentes/paginas/educacion/educacion.component';
 
 const routes: Routes = [
+  {path: "educacion", component: EducacionComponent},
   {path: "contacto", component: ContactoComponent},
   {path: "proyectos", component: ProyectosComponent},
   {path: "inicio", component: InicioComponent},

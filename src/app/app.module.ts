@@ -11,6 +11,8 @@ import { Error404Component } from './componentes/paginas/error404/error404.compo
 import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.component';
 import { ProyectoComponent } from './componentes/paginas/proyectos/proyecto/proyecto.component';
 import { ContactoComponent } from './componentes/paginas/contacto/contacto/contacto.component';
+import { EducacionComponent } from './componentes/paginas/educacion/educacion.component';
+import { ElementoComponent } from './componentes/paginas/educacion/elemento/elemento.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ContactoComponent } from './componentes/paginas/contacto/contacto/conta
     Error404Component,
     ProyectosComponent,
     ProyectoComponent,
-    ContactoComponent
+    ContactoComponent,
+    EducacionComponent,
+    ElementoComponent
   ],
   imports: [
     BrowserModule,
