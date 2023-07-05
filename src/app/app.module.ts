@@ -14,6 +14,8 @@ import { ContactoComponent } from './componentes/paginas/contacto/contacto/conta
 import { EducacionComponent } from './componentes/paginas/educacion/educacion.component';
 import { ElementoComponent } from './componentes/paginas/educacion/elemento/elemento.component';
 import { OneComponent } from './componentes/paginas/educacion/detalles/one/one.component';
+import { ApComponent } from './componentes/paginas/educacion/detalles/ap/ap.component';
+import { ObComponent } from './componentes/paginas/educacion/detalles/ob/ob.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { OneComponent } from './componentes/paginas/educacion/detalles/one/one.c
     ContactoComponent,
     EducacionComponent,
     ElementoComponent,
-    OneComponent
+    OneComponent,
+    ApComponent,
+    ObComponent
   ],
   imports: [
     BrowserModule,

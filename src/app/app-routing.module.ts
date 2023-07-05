@@ -7,8 +7,12 @@ import { ProyectosComponent } from './componentes/paginas/proyectos/proyectos.co
 import { EducacionComponent } from './componentes/paginas/educacion/educacion.component';
 import { MsjBienvenidaComponent } from './componentes/texto/msj-bienvenida/msj-bienvenida.component';
 import { OneComponent } from './componentes/paginas/educacion/detalles/one/one.component';
+import { ApComponent } from './componentes/paginas/educacion/detalles/ap/ap.component';
+import { ObComponent } from './componentes/paginas/educacion/detalles/ob/ob.component';
 
 const routes: Routes = [
+  {path: "ob", component: ObComponent},
+  {path: "ap", component: ApComponent},
   {path: "one", component: OneComponent},
   {path: "educacion", component: EducacionComponent},
   {path: "contacto", component: ContactoComponent},

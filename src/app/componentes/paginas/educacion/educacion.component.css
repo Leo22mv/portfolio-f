@@ -1,6 +1,6 @@
 .flex {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 h2 {
     margin: 30px auto;
@@ -11,4 +11,19 @@ h2 {
 }
 .elemento {
     margin-top: 30px;
+}
+
+.card-body {
+    margin-top: 50px;
+}
+.card-link {
+    color: inherit;
+    transition: 0.2s all;
+}
+.card-link:hover {
+    /* color: black; */
+    text-shadow: 1px 1px 2px black;
+}
+.card-title {
+    margin-bottom: 30px;
 }

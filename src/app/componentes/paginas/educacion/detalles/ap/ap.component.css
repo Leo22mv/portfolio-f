@@ -9,21 +9,6 @@ h2 {
     margin: 70px 70px 0 70px;
     text-align: center;
 }
-.card-body {
-    margin-top: 50px;
-}
-.card-subtitle, .btn-lg {
-    margin-top: 30px;
-}
-.card-title {
-    margin-bottom: 10px;
-}
-.btn-sm {
-    margin-bottom: 40px;
-}
-#btn {
-    margin-top: 10px;
-}
-#back {
+.btn {
     margin: 30px;
 }
