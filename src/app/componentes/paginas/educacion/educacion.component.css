@@ -1,6 +1,6 @@
 .flex {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
 }
 h2 {
     margin: 30px auto;
