@@ -60,6 +60,6 @@ label:active:after {
 }
 @media (max-height: 900px) {
   .offcanvas {
-    --bs-offcanvas-height: 50%;
+    --bs-offcanvas-height: 70%;
   }
 }
