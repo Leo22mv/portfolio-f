@@ -4,7 +4,8 @@
     <div class="col-sm-4">
         <!-- <div class="card" style="width: 100%;"> -->
           <div class="carta">
-            <img src="{{ proyecto.urlImagen }}" class="card-img-top" alt="...">
+            <img *ngIf="proyecto.urlImagen!='../../../../../assets/img/1.jpg'" src="{{ proyecto.urlImagen }}" class="card-img-top" alt="...">
+            <img *ngIf="proyecto.urlImagen=='../../../../../assets/img/1.jpg'" src="{{ proyecto.urlImagen }}" class="card-img-top" alt="..." height="200px">
             <div class="card-body">
               <h5 class="card-title">{{ proyecto.nombre }}</h5>
             </div>
@@ -20,16 +21,41 @@
             <div class="card-body">
               <p>Tecnologias implementadas:</p>
               <div class="tecnologias">
-                <img src="../../../../../assets/img/nodejs-logo.png" height="30px">
-                <img src="../../../../../assets/img/Angular_full_color_logo.svg.png" height="32px" style="margin-top: -2px;">
-                <img src="../../../../../assets/img/springboot-logo.png" height="26px" style="margin: 2px 0 0 3px;">
+                <div *ngFor="let tecnologia of proyecto.tecnologias">
+                  <img *ngIf="tecnologia=='node'" src="../../../../../assets/img/nodejs-logo.png" height="30px">
+                  <img *ngIf="tecnologia=='angular'" src="../../../../../assets/img/Angular_full_color_logo.svg.png" height="32px" style="margin-top: -2px;">
+                  <img *ngIf="tecnologia=='springboot'" src="../../../../../assets/img/springboot-logo.png" height="26px" style="margin: 2px 0 0 3px;">
+                  <img *ngIf="tecnologia=='javascript'" src="../../../../../assets/img/js.png" height="23px" style="margin: 5px 0 0 5px;">
+                  <img *ngIf="tecnologia=='html'" src="../../../../../assets/img/html.png" height="30px">
+                  <img *ngIf="tecnologia=='css'" src="../../../../../assets/img/css.png" height="30px">
+                  <img *ngIf="tecnologia=='java'" src="../../../../../assets/img/java.png" height="40px">
+                </div>
+              </div>
+              <div class="estado alert" [class]="claseAlerta">
+                <!-- <p>Estado: {{ proyecto.estado }}</p> -->
+                Estado: {{ proyecto.estado }}
               </div>
             </div>
             <div class="card-footer">
-              <a class="btn btn-dark" href="{{ proyecto.link }}" target="_blank">Abrir</a>
+              <a *ngIf="proyecto.estado=='En desarrollo (En línea)'||proyecto.estado=='En funcionamiento (En línea)'" class="btn btn-dark" href="{{ proyecto.link }}" target="_blank">
+                Abrir
+              </a>
+            </div>
+            <div class="card-footer">
+              <a *ngIf="proyecto.estado!='En desarrollo (En línea)'&&proyecto.estado!='En funcionamiento (En línea)'" class="btn btn-dark" href="{{ proyecto.repo }}" target="_blank">
+                Repositorio
+              </a>
             </div>
             <div class="card-footer" style="margin-top: 10px;">
-              <a class="btn btn-dark btn-sm">Detalles</a>
+              <a *ngIf="proyecto.estado=='En desarrollo (En línea)'||proyecto.estado=='En funcionamiento (En línea)'" href="{{ proyecto.repo }}" target="_blank" class="btn btn-dark btn-sm">
+                Repositorio Front-End
+              </a>
+              <a *ngIf="proyecto.estado=='En desarrollo (En línea)'" href="https://github.com/Leo22mv/ml-b" target="_blank" class="btn btn-dark btn-sm">
+                Repositorio Back-End
+              </a>
+              <a *ngIf="proyecto.estado=='En funcionamiento (En línea)'" href="https://github.com/Leo22mv/nakama-b" target="_blank" class="btn btn-dark btn-sm">
+                Repositorio Back-End
+              </a>
             </div>
           <!--  -->
           </div>

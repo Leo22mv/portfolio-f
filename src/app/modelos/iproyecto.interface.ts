@@ -4,5 +4,6 @@ export interface IProyecto {
     descripcion: string,
     tecnologias: string[],
     link: string,
-    repo: string
+    repo: string,
+    estado: string
 }

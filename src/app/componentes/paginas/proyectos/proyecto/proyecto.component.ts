@@ -10,6 +10,8 @@ import { TemaServiceService } from 'src/app/services/tema-service.service';
 })
 export class ProyectoComponent implements OnInit,OnChanges {
 
+  claseAlerta: string = ""
+
   temaCarta: string = this.temaS.temaCarta
 
   tema: any = this.claseCarta()
@@ -23,7 +25,8 @@ export class ProyectoComponent implements OnInit,OnChanges {
     descripcion: "",
     tecnologias: [""],
     link: "",
-    repo: ""
+    repo: "",
+    estado: ""
   }
 
   constructor(private temaS:TemaServiceService) { }
@@ -33,6 +36,13 @@ export class ProyectoComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
+    if (this.proyecto.estado=="En desarrollo (En línea)") {
+      this.claseAlerta = "alert-danger";
+    } else if (this.proyecto.estado=="En funcionamiento (En línea)") {
+      this.claseAlerta = "alert-success";
+    } else {
+      this.claseAlerta = "alert-warning";
+    }
   }
 
   claseCarta() {
