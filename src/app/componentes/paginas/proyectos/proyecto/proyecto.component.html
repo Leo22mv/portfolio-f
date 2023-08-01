@@ -42,18 +42,21 @@
               </a>
             </div>
             <div class="card-footer">
-              <a *ngIf="proyecto.estado!='En desarrollo (En línea)'&&proyecto.estado!='En funcionamiento (En línea)'" class="btn btn-dark" href="{{ proyecto.repo }}" target="_blank">
+              <a *ngIf="proyecto.estado=='En funcionamiento (Sin desplegar)'||proyecto.nombre=='Simulador de piano'" class="btn btn-dark" href="{{ proyecto.repo }}" target="_blank">
                 Repositorio
+              </a>
+              <a *ngIf="proyecto.nombre=='Simulador de piano'" href="https://codepen.io/zastrow/pen/kxdYdk" target="_blank" class="btn btn-dark">
+                Diseño
               </a>
             </div>
             <div class="card-footer" style="margin-top: 10px;">
-              <a *ngIf="proyecto.estado=='En desarrollo (En línea)'||proyecto.estado=='En funcionamiento (En línea)'" href="{{ proyecto.repo }}" target="_blank" class="btn btn-dark btn-sm">
+              <a *ngIf="proyecto.nombre=='Nakama store'||proyecto.nombre=='E-commerce'" href="{{ proyecto.repo }}" target="_blank" class="btn btn-dark btn-sm">
                 Repositorio Front-End
               </a>
               <a *ngIf="proyecto.estado=='En desarrollo (En línea)'" href="https://github.com/Leo22mv/ml-b" target="_blank" class="btn btn-dark btn-sm">
                 Repositorio Back-End
               </a>
-              <a *ngIf="proyecto.estado=='En funcionamiento (En línea)'" href="https://github.com/Leo22mv/nakama-b" target="_blank" class="btn btn-dark btn-sm">
+              <a *ngIf="proyecto.nombre=='Nakama store'" href="https://github.com/Leo22mv/nakama-b" target="_blank" class="btn btn-dark btn-sm">
                 Repositorio Back-End
               </a>
             </div>
