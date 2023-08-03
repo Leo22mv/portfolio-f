@@ -10,6 +10,15 @@ export class ProyectosComponent implements OnInit {
 
   listaProyectos: IProyecto[] = [
     {
+      urlImagen: "../../../../../assets/img/synth.jpeg",
+      nombre: "Simulador de sintetizadores",
+      descripcion: "Simulador que permite mezclar 2 sintetizadores de un oscilador cada uno, con sus respectivas envolventes. Desarrollado con la librería Tone.js",
+      tecnologias: ["angular"],
+      link: "https://daw-demo-f.web.app",
+      repo: "https://github.com/Leo22mv/daw",
+      estado: "En funcionamiento (En línea)"
+    },
+    {
       urlImagen: "../../../../../assets/img/pe.jpeg",
       nombre: "Simulador de piano",
       descripcion: "Implementacion de funcionalidad y sonido a un diseño de piano realizado por Philip Zastrow",
