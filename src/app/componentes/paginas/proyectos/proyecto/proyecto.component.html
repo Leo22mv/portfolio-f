@@ -29,6 +29,7 @@
                   <img *ngIf="tecnologia=='html'" src="../../../../../assets/img/html.png" height="30px">
                   <img *ngIf="tecnologia=='css'" src="../../../../../assets/img/css.png" height="30px">
                   <img *ngIf="tecnologia=='java'" src="../../../../../assets/img/java.png" height="40px">
+                  <img *ngIf="tecnologia=='react'" src="../../../../../assets/img/react.png" height="26px">
                 </div>
               </div>
               <div class="estado alert" [class]="claseAlerta">
@@ -42,7 +43,7 @@
               </a>
             </div>
             <div class="card-footer">
-              <a *ngIf="proyecto.estado=='En funcionamiento (Sin desplegar)'||proyecto.nombre=='Simulador de piano'||proyecto.nombre=='Simulador de sintetizadores'" class="btn btn-dark d-flex align-items-center" href="{{ proyecto.repo }}" target="_blank">
+              <a *ngIf="proyecto.estado=='En funcionamiento (Sin desplegar)'||proyecto.nombre=='Simulador de piano'||proyecto.nombre=='Simulador de sintetizadores'||proyecto.nombre=='Calculadora de préstamos'" class="btn btn-dark d-flex align-items-center" href="{{ proyecto.repo }}" target="_blank">
                 Repositorio
               </a>
               <a *ngIf="proyecto.nombre=='Simulador de piano'" href="https://codepen.io/zastrow/pen/kxdYdk" target="_blank" class="btn btn-dark">

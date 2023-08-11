@@ -10,6 +10,15 @@ export class ProyectosComponent implements OnInit {
 
   listaProyectos: IProyecto[] = [
     {
+      urlImagen: "../../../../../assets/img/calculadora.jpeg",
+      nombre: "Calculadora de préstamos",
+      descripcion: "Sencilla aplicación web desarrollada con React",
+      tecnologias: ["react"],
+      link: "https://glowing-puppy-f11ebc.netlify.app",
+      repo: "https://github.com/Leo22mv/calculadoraPrestamos",
+      estado: "En funcionamiento (En línea)"
+    },
+    {
       urlImagen: "../../../../../assets/img/synth.jpeg",
       nombre: "Simulador de sintetizadores",
       descripcion: "Simulador que permite mezclar 2 sintetizadores de un oscilador cada uno, con sus respectivas envolventes. Desarrollado con la librería Tone.js",
@@ -64,9 +73,18 @@ export class ProyectosComponent implements OnInit {
       estado: "En funcionamiento (Sin desplegar)"
     },
     {
+      urlImagen: "../../../../../assets/img/e-commerce.png",
+      nombre: "E-commerce",
+      descripcion: "E-commerce complejo con múltiples funcionalidades",
+      tecnologias: ["angular", "springboot"],
+      link: "https://e-commerce-f.web.app/inicio",
+      repo: "https://github.com/Leo22mv/ml-f",
+      estado: "En desarrollo (En línea)"
+    },
+    {
       urlImagen: "../../../../../assets/img/square.png",
       nombre: "Demo",
-      descripcion: "Juego web estático de plataformas, acción y aventura de 5 niveles con un jefe final",
+      descripcion: "Juego web de plataformas, acción y aventura de 5 niveles con un jefe final, desarrollado en CSS y Javascript",
       tecnologias: ["html", "css", "javascript"],
       link: "",
       repo: "https://github.com/Leo22mv/RPG",
@@ -75,20 +93,11 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/faze.png",
       nombre: "Laberinto",
-      descripcion: "Juego web estático de 1 nivel",
+      descripcion: "Juego web de 1 nivel, desarrollado en CSS y Javascript",
       tecnologias: ["html", "css", "javascript"],
       link: "",
       repo: "https://github.com/Leo22mv/laberinto",
       estado: "En funcionamiento (Sin desplegar)"
-    },
-    {
-      urlImagen: "../../../../../assets/img/e-commerce.png",
-      nombre: "E-commerce",
-      descripcion: "E-commerce complejo con múltiples funcionalidades",
-      tecnologias: ["angular", "springboot"],
-      link: "https://e-commerce-f.web.app/inicio",
-      repo: "https://github.com/Leo22mv/ml-f",
-      estado: "En desarrollo (En línea)"
     }
   ]
 
