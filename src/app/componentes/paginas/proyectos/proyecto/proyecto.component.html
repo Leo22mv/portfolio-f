@@ -43,7 +43,7 @@
               </a>
             </div>
             <div class="card-footer">
-              <a *ngIf="proyecto.estado=='En funcionamiento (Sin desplegar)'||proyecto.nombre=='Simulador de piano'||proyecto.nombre=='Simulador de sintetizadores'||proyecto.nombre=='Calculadora de préstamos'" class="btn btn-dark d-flex align-items-center" href="{{ proyecto.repo }}" target="_blank">
+              <a *ngIf="proyecto.estado=='En funcionamiento (Sin desplegar)'||proyecto.nombre=='Simulador de piano'||proyecto.nombre=='Simulador de sintetizadores'||proyecto.nombre=='Calculadora de préstamos'||proyecto.nombre=='E-commerce 2'" class="btn btn-dark d-flex align-items-center" href="{{ proyecto.repo }}" target="_blank">
                 Repositorio
               </a>
               <a *ngIf="proyecto.nombre=='Simulador de piano'" href="https://codepen.io/zastrow/pen/kxdYdk" target="_blank" class="btn btn-dark">
@@ -54,14 +54,19 @@
               </a>
             </div>
             <div class="card-footer" style="margin-top: 10px;">
-              <a *ngIf="proyecto.nombre=='Nakama store'||proyecto.nombre=='E-commerce'" href="{{ proyecto.repo }}" target="_blank" class="btn btn-dark btn-sm">
+              <a *ngIf="proyecto.nombre=='Nakama store'||proyecto.nombre=='E-commerce'" href="{{ proyecto.repo }}" target="_blank" class="btn btn-dark">
                 Repositorio Front-End
-              </a>
-              <a *ngIf="proyecto.estado=='En desarrollo (En línea)'" href="https://github.com/Leo22mv/ml-b" target="_blank" class="btn btn-dark btn-sm">
-                Repositorio Back-End
               </a>
               <a *ngIf="proyecto.nombre=='Nakama store'" href="https://github.com/Leo22mv/nakama-b" target="_blank" class="btn btn-dark btn-sm">
                 Repositorio Back-End
+              </a>
+            </div>
+            <div class="card-footer" style="margin-top: 10px;">
+              <a *ngIf="proyecto.estado=='En desarrollo (En línea)'&&proyecto.nombre=='E-commerce'" href="https://github.com/Leo22mv/ml-b" target="_blank" class="btn btn-dark btn-sm">
+                Repositorio Back-End 1
+              </a>
+              <a *ngIf="proyecto.estado=='En desarrollo (En línea)'&&proyecto.nombre=='E-commerce'" href="https://github.com/Leo22mv/ml-b-n" target="_blank" class="btn btn-dark btn-sm">
+                Repositorio Back-End 2
               </a>
             </div>
           <!--  -->

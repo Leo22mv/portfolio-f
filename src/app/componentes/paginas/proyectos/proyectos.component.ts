@@ -10,15 +10,6 @@ export class ProyectosComponent implements OnInit {
 
   listaProyectos: IProyecto[] = [
     {
-      urlImagen: "../../../../../assets/img/calculadora.jpeg",
-      nombre: "Calculadora de préstamos",
-      descripcion: "Sencilla aplicación web desarrollada con React",
-      tecnologias: ["react"],
-      link: "https://glowing-puppy-f11ebc.netlify.app",
-      repo: "https://github.com/Leo22mv/calculadoraPrestamos",
-      estado: "En funcionamiento (En línea)"
-    },
-    {
       urlImagen: "../../../../../assets/img/synth.jpeg",
       nombre: "Simulador de sintetizadores",
       descripcion: "Simulador que permite mezclar 2 sintetizadores de un oscilador cada uno, con sus respectivas envolventes. Desarrollado con la librería Tone.js",
@@ -34,6 +25,33 @@ export class ProyectosComponent implements OnInit {
       tecnologias: ["javascript"],
       link: "https://leo22mv.github.io/pe/",
       repo: "https://github.com/Leo22mv/pe",
+      estado: "En funcionamiento (En línea)"
+    },
+    {
+      urlImagen: "../../../../../assets/img/e-commerce.png",
+      nombre: "E-commerce 2",
+      descripcion: "E-commerce complejo con múltiples funcionalidades",
+      tecnologias: ["react"],
+      link: "https://wonderful-tulumba-7ded23.netlify.app",
+      repo: "https://github.com/Leo22mv/e-c-f-r",
+      estado: "En desarrollo (En línea)"
+    },
+    {
+      urlImagen: "../../../../../assets/img/e-commerce.png",
+      nombre: "E-commerce",
+      descripcion: "E-commerce complejo con múltiples funcionalidades",
+      tecnologias: ["angular", "springboot", "node"],
+      link: "https://e-commerce-f.web.app/inicio",
+      repo: "https://github.com/Leo22mv/ml-f",
+      estado: "En desarrollo (En línea)"
+    },
+    {
+      urlImagen: "../../../../../assets/img/calculadora.jpeg",
+      nombre: "Calculadora de préstamos",
+      descripcion: "Sencilla aplicación web desarrollada con React",
+      tecnologias: ["react"],
+      link: "https://glowing-puppy-f11ebc.netlify.app",
+      repo: "https://github.com/Leo22mv/calculadoraPrestamos",
       estado: "En funcionamiento (En línea)"
     },
     {
@@ -71,15 +89,6 @@ export class ProyectosComponent implements OnInit {
       link: "",
       repo: "https://github.com/Leo22mv/JSP-JPA",
       estado: "En funcionamiento (Sin desplegar)"
-    },
-    {
-      urlImagen: "../../../../../assets/img/e-commerce.png",
-      nombre: "E-commerce",
-      descripcion: "E-commerce complejo con múltiples funcionalidades",
-      tecnologias: ["angular", "springboot"],
-      link: "https://e-commerce-f.web.app/inicio",
-      repo: "https://github.com/Leo22mv/ml-f",
-      estado: "En desarrollo (En línea)"
     },
     {
       urlImagen: "../../../../../assets/img/square.png",
