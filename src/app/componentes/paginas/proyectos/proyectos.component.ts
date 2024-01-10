@@ -12,7 +12,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/synth.jpeg",
       nombre: "Simulador de sintetizadores",
-      descripcion: "Simulador que permite mezclar 2 sintetizadores de un oscilador cada uno, con sus respectivas envolventes. Desarrollado con la librería Tone.js",
+      descripcion: "Simulador que permite mezclar 2 sintetizadores de un oscilador cada uno, con sus respectivas envolventes. Desarrollado con Angular a través de la librería Tone.js",
       tecnologias: ["angular"],
       link: "https://daw-demo-f.web.app",
       repo: "https://github.com/Leo22mv/daw",
@@ -21,7 +21,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/pe.jpeg",
       nombre: "Simulador de piano",
-      descripcion: "Implementacion de funcionalidad y sonido a un diseño de piano realizado por Philip Zastrow",
+      descripcion: "Implementación de funcionalidad y sonido con Javascript a un diseño de piano realizado en CSS por Philip Zastrow",
       tecnologias: ["javascript"],
       link: "https://leo22mv.github.io/pe/",
       repo: "https://github.com/Leo22mv/pe",
@@ -48,7 +48,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/calculadora.jpeg",
       nombre: "Calculadora de préstamos",
-      descripcion: "Sencilla aplicación web desarrollada con React",
+      descripcion: "Aplicación web desarrollada con React",
       tecnologias: ["react"],
       link: "https://glowing-puppy-f11ebc.netlify.app",
       repo: "https://github.com/Leo22mv/calculadoraPrestamos",
@@ -57,7 +57,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/nakama.png",
       nombre: "Nakama store",
-      descripcion: "E-commerce sencillo realizado para una tienda de disfraces",
+      descripcion: "E-commerce realizado para una tienda de disfraces",
       tecnologias: ["angular", "node"],
       link: "https://nakama-0.web.app/inicio",
       repo: "https://github.com/Leo22mv/Nakama",
@@ -66,7 +66,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/1.jpeg",
       nombre: "Demo Spring Boot",
-      descripcion: "Aplicación desarrollada con Spring Boot que realiza un CRUD completo",
+      descripcion: "Aplicación que realiza un CRUD completo. Desarrollada con Spring Boot ",
       tecnologias: ["springboot"],
       link: "",
       repo: "https://github.com/Leo22mv/SpringBoot",
@@ -75,7 +75,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/1.jpeg",
       nombre: "Demo sockets",
-      descripcion: "Aplicación desarrollada con sockets que simula una conexión entre un cliente y un servidor",
+      descripcion: "Aplicación desarrollada con sockets de Java que simula una conexión entre un cliente y un servidor",
       tecnologias: ["java"],
       link: "",
       repo: "https://github.com/Leo22mv/Sockets",
@@ -84,7 +84,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/1.jpeg",
       nombre: "Demo JSP + JPA",
-      descripcion: "Aplicación desarrollada con JSP+JPA que realiza un CRUD sencillo",
+      descripcion: "Aplicación desarrollada con JSP+JPA que realiza un CRUD",
       tecnologias: ["java"],
       link: "",
       repo: "https://github.com/Leo22mv/JSP-JPA",
@@ -93,7 +93,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/square.png",
       nombre: "Demo",
-      descripcion: "Juego web de plataformas, acción y aventura de 5 niveles con un jefe final, desarrollado en CSS y Javascript",
+      descripcion: "Videojuego de plataformas para web, con 5 niveles y un jefe, desarrollado con CSS y Javascript",
       tecnologias: ["html", "css", "javascript"],
       link: "",
       repo: "https://github.com/Leo22mv/RPG",
@@ -102,7 +102,7 @@ export class ProyectosComponent implements OnInit {
     {
       urlImagen: "../../../../../assets/img/faze.png",
       nombre: "Laberinto",
-      descripcion: "Juego web de 1 nivel, desarrollado en CSS y Javascript",
+      descripcion: "Videojuego para web de 1 nivel, desarrollado en CSS y Javascript",
       tecnologias: ["html", "css", "javascript"],
       link: "",
       repo: "https://github.com/Leo22mv/laberinto",
