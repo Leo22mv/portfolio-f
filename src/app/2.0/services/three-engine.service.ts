@@ -11,6 +11,7 @@ export class ThreeEngineService {
   private camera!: THREE.PerspectiveCamera;
   private scene!: THREE.Scene;
   private light!: THREE.Light;
+  private controls!: OrbitControls;
 
   private cube!: THREE.Mesh;
 
@@ -42,24 +43,24 @@ export class ThreeEngineService {
     this.camera.position.z = 5;
     this.scene.add(this.camera);
 
-    // this.light = new THREE.AmbientLight(0x000000)
-    // this.light.position.z = 10;
-    // this.scene.add(this.light)
+    this.light = new THREE.AmbientLight(0xffffff, 0.1)
+    this.light.position.z = 10;
+    this.scene.add(this.light)
 
-    // this.light = new THREE.PointLight(0x000000, 1, 5, 1)
-    // this.light.position.y = 2;
-    // this.scene.add(this.light)
+    this.light = new THREE.PointLight(0xffffff, 5, 4, 1)
+    this.light.position.set(0, 2, 2);
+    this.scene.add(this.light)
 
-    this.cube = new THREE.Mesh(new THREE.BoxGeometry(5, 2, 1), new THREE.MeshBasicMaterial({ color: 0x555555 }));
-    this.cube.position.y = -2.5
+    const cube = new THREE.Mesh(new THREE.BoxGeometry(3, 2, 3), new THREE.MeshStandardMaterial({ color: 0x555555 }));
+    cube.position.y = -2
+    this.scene.add(cube);
+
+    this.cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
     this.scene.add(this.cube);
 
-    this.cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
-    this.scene.add(this.cube);
 
-
-    const controls = new OrbitControls(this.camera, canvas.nativeElement)
-    
+    this.controls = new OrbitControls(this.camera, canvas.nativeElement)
+    this.controls.enableDamping = true
   }
 
   public animate(): void {
@@ -83,6 +84,7 @@ export class ThreeEngineService {
       this.render();
     });
 
+    this.controls.update()
     this.cube.rotation.y += 0.01;
     this.renderer.render(this.scene, this.camera)
   }
