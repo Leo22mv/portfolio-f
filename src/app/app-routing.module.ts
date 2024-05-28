@@ -25,9 +25,9 @@ const routes: Routes = [
     {path: "**", component: Error404Component}
   ]},
 
-  {path: "homee", component: HomeComponent},
+  {path: "home", component: HomeComponent},
 
-  {path: "", redirectTo: "/homee", pathMatch: "full"},
+  {path: "", redirectTo: "/home", pathMatch: "full"},
   {path: "**", redirectTo: "/old_version/**", pathMatch: "full"}
 ];
 
