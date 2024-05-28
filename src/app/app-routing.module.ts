@@ -21,7 +21,6 @@ const routes: Routes = [
     {path: "contacto", component: ContactoComponent},
     {path: "proyectos", component: ProyectosComponent},
     {path: "inicio", component: InicioComponent},
-    {path: "", redirectTo: "/old_version/inicio", pathMatch: "full"},
     {path: "**", component: Error404Component}
   ]},
 
