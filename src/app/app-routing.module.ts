@@ -21,12 +21,13 @@ const routes: Routes = [
     {path: "contacto", component: ContactoComponent},
     {path: "proyectos", component: ProyectosComponent},
     {path: "inicio", component: InicioComponent},
+    {path: "", redirectTo: "/old_version/inicio", pathMatch: "full"},
     {path: "**", component: Error404Component}
   ]},
 
-  {path: "home", component: HomeComponent},
+  {path: "homee", component: HomeComponent},
 
-  {path: "", redirectTo: "/home", pathMatch: "full"},
+  {path: "", redirectTo: "/homee", pathMatch: "full"},
   {path: "**", redirectTo: "/old_version/**", pathMatch: "full"}
 ];
 
