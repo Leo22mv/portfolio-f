@@ -16,6 +16,9 @@ import { ElementoComponent } from './componentes/paginas/educacion/elemento/elem
 import { OneComponent } from './componentes/paginas/educacion/detalles/one/one.component';
 import { ApComponent } from './componentes/paginas/educacion/detalles/ap/ap.component';
 import { ObComponent } from './componentes/paginas/educacion/detalles/ob/ob.component';
+import { OldVersionComponent } from './old-version/old-version.component';
+import { HomeComponent } from './2.0/components/pages/home/home.component';
+import { ThreeEngineComponent } from './2.0/components/three-engine/three-engine.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ObComponent } from './componentes/paginas/educacion/detalles/ob/ob.comp
     ElementoComponent,
     OneComponent,
     ApComponent,
-    ObComponent
+    ObComponent,
+    OldVersionComponent,
+    HomeComponent,
+    ThreeEngineComponent
   ],
   imports: [
     BrowserModule,
