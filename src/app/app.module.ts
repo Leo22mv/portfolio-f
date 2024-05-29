@@ -19,6 +19,7 @@ import { ObComponent } from './componentes/paginas/educacion/detalles/ob/ob.comp
 import { OldVersionComponent } from './old-version/old-version.component';
 import { HomeComponent } from './2.0/components/pages/home/home.component';
 import { ThreeEngineComponent } from './2.0/components/three-engine/three-engine.component';
+import { UtnComponent } from './componentes/paginas/educacion/detalles/utn/utn.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ThreeEngineComponent } from './2.0/components/three-engine/three-engine
     ObComponent,
     OldVersionComponent,
     HomeComponent,
-    ThreeEngineComponent
+    ThreeEngineComponent,
+    UtnComponent
   ],
   imports: [
     BrowserModule,

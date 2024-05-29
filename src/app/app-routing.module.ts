@@ -11,9 +11,11 @@ import { ApComponent } from './componentes/paginas/educacion/detalles/ap/ap.comp
 import { ObComponent } from './componentes/paginas/educacion/detalles/ob/ob.component';
 import { OldVersionComponent } from './old-version/old-version.component';
 import { HomeComponent } from './2.0/components/pages/home/home.component';
+import { UtnComponent } from './componentes/paginas/educacion/detalles/utn/utn.component';
 
 const routes: Routes = [
   {path: "old_version", component: OldVersionComponent, children: [
+    {path: "utn", component: UtnComponent},
     {path: "ob", component: ObComponent},
     {path: "ap", component: ApComponent},
     {path: "one", component: OneComponent},
