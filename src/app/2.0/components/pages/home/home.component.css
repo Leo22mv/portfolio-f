@@ -1,0 +1,20 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-bottom: 500vh;
+}
+section {
+    margin-top: 5vh;
+    grid-column: 3 / 11;
+    color: white;
+    background-color: rgba(50, 50, 50, 0.5);
+    text-align: center;
+    /* filter: blur(3px); */
+    border-radius: 20px;
+    backdrop-filter: blur(1.5px);
+    padding: 10px;
+}
+.title {
+    margin-bottom: 60vh;
+    grid-column: 2 / 12;
+}

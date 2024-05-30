@@ -11,7 +11,7 @@ export class ThreeEngineComponent implements OnInit {
   @ViewChild('rendererCanvas', { static: true })
   public rendererCanvas!: ElementRef<HTMLCanvasElement>;
 
-  constructor(private engServ: ThreeEngineService) { }
+  constructor(private engServ: ThreeEngineService, private engServ2: ThreeEngineService) { }
 
   ngOnInit(): void {
     this.engServ.createScene(this.rendererCanvas);
