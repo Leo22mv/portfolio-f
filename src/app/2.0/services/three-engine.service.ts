@@ -1,7 +1,8 @@
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { DragControls } from 'three/examples/jsm/controls/DragControls'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,11 @@ export class ThreeEngineService {
   private camera!: THREE.PerspectiveCamera;
   private scene!: THREE.Scene;
   private light!: THREE.Light;
-  private controls!: OrbitControls;
+
+  private controls!: DragControls;
 
   private cube!: THREE.Mesh;
-  private cube2!: THREE.Mesh;
+  private cubeDragged: boolean = false
 
   private torus!: THREE.Mesh;
   private torus2!: THREE.Mesh;
@@ -48,8 +50,9 @@ export class ThreeEngineService {
     this.camera = new THREE.PerspectiveCamera(
       75, (window.innerWidth) / window.innerHeight, 0.1, 1000
     );
-    this.camera.position.set(0, 1.8, 5)
-    if (window.innerWidth > 1440) {
+    this.camera.position.set(0, 2.3, 5)
+
+    if (window.innerWidth >= 1024) {
       this.camera.position.y = 1.3
     }
     // this.camera.rotateX(-0.3)
@@ -67,6 +70,7 @@ export class ThreeEngineService {
     // this.scene.add(lightHelper)
 
     const gridHelper = new THREE.GridHelper(50, 50)
+    // gridHelper.position.z += 1
     this.scene.add(gridHelper)
 
     const cube = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.5, 40, 1, false), new THREE.MeshStandardMaterial({ color: 0xffffff })); // , wireframe: true }));
@@ -74,14 +78,12 @@ export class ThreeEngineService {
     this.scene.add(cube);
 
     this.cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
-    this.cube2 = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.2, 1.2), new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.3 }));
     this.torus = new THREE.Mesh(new THREE.TorusGeometry(1.2, 0.03), new THREE.MeshBasicMaterial({ color: 0xffff00 }));
     this.torus2 = new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.03), new THREE.MeshBasicMaterial({ color: 0xffff00 }));
     this.cube.position.y = 2
-    this.cube2.position.y = 2
     this.torus.position.y = 2
     this.torus2.position.y = 2
-    this.scene.add(this.cube, this.cube2, this.torus, this.torus2);
+    this.scene.add(this.cube, this.torus, this.torus2);
     
     const loader = new FBXLoader();
     loader.load('/assets/3d/Reload.fbx', (fbx) => {
@@ -89,10 +91,17 @@ export class ThreeEngineService {
       this.scene.add(fbx)
     }, undefined, (err) => console.error(err))
 
+    const cube3 = new THREE.Mesh(new THREE.BoxGeometry(4, 4, 4), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
+    cube3.position.set(-15, 2, 17)
+    this.scene.add(cube3)
 
-    // this.controls = new OrbitControls(this.camera, canvas.nativeElement)
-    // this.controls.enableDamping = true
-    // this.controls.target = new THREE.Vector3(0, 2, 0)
+
+    this.controls = new DragControls([this.cube], this.camera, canvas.nativeElement)
+    this.controls.mode = 'rotate'
+    this.controls.rotateSpeed = 5
+    this.controls.addEventListener('dragstart', () => {
+      this.cubeDragged = true
+    })
 
     for (let i = 0; i < 1500; i++) {
       this.addStar()
@@ -124,9 +133,9 @@ export class ThreeEngineService {
       this.render();
     });
 
-    // this.controls.update()
-    this.cube.rotation.y += 0.01;
-    this.cube2.rotation.y += 0.01;
+    if (!this.cubeDragged) {
+      this.cube.rotation.y += 0.01;
+    }
     
     this.torus.rotation.set(this.torus.rotation.x += 0.02, this.torus.rotation.y += 0.02, 0)
     this.torus2.rotation.set(this.torus2.rotation.x -= 0.005, this.torus2.rotation.y -= 0.005, 0)
@@ -137,6 +146,7 @@ export class ThreeEngineService {
   private resize() {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.camera.aspect = window.innerWidth / window.innerHeight
+    this.camera.updateProjectionMatrix()
   }
 
 
@@ -169,31 +179,51 @@ export class ThreeEngineService {
   private moveCamera() {
     const t = document.body.getBoundingClientRect().top;
 
-    if (this.camera.position.z >= 18) {
-      this.camera.position.z = 18
-      if (this.limit == null) {
-        this.limit = t
-      }
-    }
+    // if (this.camera.position.z >= 18) {
+    //   this.camera.position.z = 18
+    //   if (this.limit == null) {
+    //     this.limit = t
+    //   }
+    // }
     
-    if (this.limit == null || t > this.limit) {
+    // if (this.limit == null || t > this.limit) {
+      // this.camera.position.z = 5 + t * -0.01;
+      // this.camera.rotation.y = 0
+    // } else {
+    //   if (this.camera.rotation.y < 1.5708 || t > this.limit2) {
+    //     this.camera.rotation.y = (t - this.limit) * -0.005;
+    //     if (this.camera.rotation.y > 1.5708) {
+    //       this.camera.rotation.y = 1.5708
+    //     }
+    //   } else {
+    //     if (this.limit2 == null) {
+    //       this.limit2 = t
+    //     }
+    //     this.camera.rotation.y = 1.5708
+    //   }
+    // }
+
+    if (t >= -1300) {
       this.camera.position.z = 5 + t * -0.01;
       this.camera.rotation.y = 0
-    } else {
-      if (this.camera.rotation.y < 1.5708 || t > this.limit2) {
-        this.camera.rotation.y = (t - this.limit) * -0.005;
-        if (this.camera.rotation.y > 1.5708) {
-          this.camera.rotation.y = 1.5708
-        }
-      } else {
-        if (this.limit2 == null) {
-          this.limit2 = t
-        }
+      this.camera.position.x = 0
+      if (this.camera.position.z > 17) {
+        this.camera.position.z = 17
+      }
+    } else if (t >= -1650) {
+      this.camera.rotation.y = (t + 1300) * -0.005;
+      this.camera.position.x = 0
+      this.camera.position.z = 17
+      if (this.camera.rotation.y > 1.5708) {
         this.camera.rotation.y = 1.5708
       }
+    } else {
+      this.camera.position.x = (t + 1650) * 0.01;
+      this.camera.rotation.y = 1.5708
+      this.camera.position.z = 17
     }
 
-    console.log(this.camera.rotation.y)
+    console.log(this.camera.position.z)
     // this.camera.position.x = t * -0.0002;
     // this.camera.rotation.y = t * -0.0002;
   }

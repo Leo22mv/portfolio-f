@@ -1,20 +1,39 @@
 main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    margin-bottom: 500vh;
+    margin-bottom: 1800px;
 }
 section {
     margin-top: 5vh;
-    grid-column: 3 / 11;
+    grid-column: 2 / 12;
     color: white;
-    background-color: rgba(50, 50, 50, 0.5);
+    background-color: rgba(40, 10, 10, 0.5);
     text-align: center;
-    /* filter: blur(3px); */
     border-radius: 20px;
     backdrop-filter: blur(1.5px);
     padding: 10px;
+    border: 1px cyan solid;
+    box-shadow: 0 0 10px 1px cyan;
+    font-family: 'Kenvector Future';
 }
-.title {
-    margin-bottom: 60vh;
-    grid-column: 2 / 12;
+section:last-child {
+    margin-top: 60vh;
+    font-family: 'Kenvector Future Thin';
+}
+p {
+    font-size: large;
+}
+
+@font-face {
+    font-family: 'Kenvector Future';
+    src: url('../../../../../assets/fonts/kenvector_future.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Kenvector Future Thin';
+    src: url('../../../../../assets/fonts/kenvector_future_thin.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
