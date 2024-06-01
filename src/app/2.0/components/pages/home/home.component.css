@@ -1,10 +1,37 @@
 main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    margin-bottom: 1800px;
+    margin-bottom: 500vh;
 }
-section {
+.title {
     margin-top: 5vh;
+    /* margin-bottom: 1800px; */
+}
+.presentation {
+    margin-top: 100vh;
+    margin-bottom: 5vh;
+}
+
+h1 {
+    font-family: 'Kenvector Future';
+}
+
+h6 {
+    font-family: 'Kenvector Future Thin';
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.scroll {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.title, .presentation {
     grid-column: 2 / 12;
     color: white;
     background-color: rgba(40, 10, 10, 0.5);
@@ -12,16 +39,175 @@ section {
     border-radius: 20px;
     backdrop-filter: blur(1.5px);
     padding: 10px;
-    border: 1px cyan solid;
-    box-shadow: 0 0 10px 1px cyan;
-    font-family: 'Kenvector Future';
+    border: 3px red double;
+    animation: borderColor 8s infinite;
 }
-section:last-child {
-    margin-top: 60vh;
-    font-family: 'Kenvector Future Thin';
+  
+@keyframes borderColor {
+    0% {
+        border-color: red; /* Color inicial del borde */
+        box-shadow: 0 0 10px 1px red;
+    }
+    20% {
+        border-color: red; /* Color inicial del borde */
+        box-shadow: 0 0 10px 1px red;
+    }
+    40% {
+        border-color: rgb(150, 0, 150); /* Nuevo color del borde */
+        box-shadow: 0 0 10px 1px rgb(150, 0, 150);
+    }
+    60% {
+        border-color: red; /* Color inicial del borde */
+        box-shadow: 0 0 10px 1px red;
+    }
+    100% {
+        border-color: red; /* Color inicial del borde */
+        box-shadow: 0 0 10px 1px red;
+    }
 }
-p {
-    font-size: large;
+
+.mouse_scroll {
+	display: block;
+	margin: 0 auto;
+	width: 39px;
+	height: 100px;
+}
+
+
+.m_scroll_arrows
+{
+  display: block;
+  width: 5px;
+  height: 5px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+   
+  border-right: 2px solid red;
+  border-bottom: 2px solid red;
+  margin: 0 0 3px 4px;
+  
+  width: 16px;
+  height: 16px;
+}
+
+
+.unu
+{
+  margin-top: 1px;
+}
+
+.unu, .doi, .trei
+{
+    -webkit-animation: mouse-scroll 1s infinite;
+    -moz-animation: mouse-scroll 1s infinite;
+    animation: mouse-scroll 1s infinite;
+  
+}
+
+.unu
+{
+  -webkit-animation-delay: .1s;
+  -moz-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  
+  animation-direction: alternate;
+  animation-delay: alternate;
+}
+
+.doi
+{
+  -webkit-animation-delay: .2s;
+  -moz-animation-delay: .2s;
+  -webkit-animation-direction: alternate;
+  
+  animation-delay: .2s;
+  animation-direction: alternate;
+  
+  margin-top: -6px;
+}
+
+.trei
+{
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s;
+  -webkit-animation-direction: alternate;
+  
+  animation-delay: .3s;
+  animation-direction: alternate;
+  
+  
+  margin-top: -6px;
+}
+
+.mouse {
+  height: 42px;
+  width: 24px;
+  border-radius: 14px;
+  transform: none;
+  border: 2px solid red;
+  top: 170px;
+  /* box-shadow: 1px 1px 5px 1px red; */
+}
+
+.wheel {
+  height: 5px;
+  width: 2px;
+  display: block;
+  margin: 5px auto;
+  background: red;
+  position: relative;
+  
+  height: 4px;
+  width: 4px;
+  border: 2px solid #f00;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+}
+
+@media (min-width: 1440px) {
+    .m_scroll_arrows {        
+        width: 32px;
+        height: 32px;
+    }
+    .mouse {
+        height: 84px;
+        width: 48px;
+        border-radius: 28px;
+    }
+    .mouse_scroll {
+        width: 78px;
+        height: 200px;
+    }
+    .wheel {
+        height: 8px;
+        width: 8px;
+    }
+}
+
+@-webkit-keyframes mouse-scroll {
+
+  0%   { opacity: 0;}
+  50%  { opacity: .5;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@-o-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
 }
 
 @font-face {

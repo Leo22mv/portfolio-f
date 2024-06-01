@@ -1,13 +1,14 @@
-import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
+import { ElementRef, Injectable, NgZone, OnDestroy, OnInit } from '@angular/core';
 import * as THREE from 'three';
 import { DragControls } from 'three/examples/jsm/controls/DragControls'
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { color } from 'three/examples/jsm/nodes/shadernode/ShaderNode';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ThreeEngineService {
+export class ThreeEngineService implements OnInit, OnDestroy{
   private canvas!: HTMLCanvasElement;
   private renderer!: THREE.WebGLRenderer;
   private camera!: THREE.PerspectiveCamera;
@@ -16,8 +17,8 @@ export class ThreeEngineService {
 
   private controls!: DragControls;
 
-  private cube!: THREE.Mesh;
-  private cubeDragged: boolean = false
+  private logo!: THREE.Group<THREE.Object3DEventMap>;
+  private logoDragged: boolean = false
 
   private torus!: THREE.Mesh;
   private torus2!: THREE.Mesh;
@@ -27,7 +28,20 @@ export class ThreeEngineService {
   private limit!: number;
   private limit2!: number;
 
+  private pointer!: THREE.Vector2
+  private raycaster!: THREE.Raycaster
+
+  private distanceFromTopToBottom!: number
+
+  private loader: GLTFLoader = new GLTFLoader();
+
+  private boxShadow: string = ""
+
   constructor(private ngZone: NgZone) { }
+
+  public ngOnInit() {
+    
+  }
 
   public ngOnDestroy() {
     if (this.frameId != null) {
@@ -36,12 +50,15 @@ export class ThreeEngineService {
   }
 
   public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
+    this.distanceFromTopToBottom = document.body.getBoundingClientRect().bottom;
+
+
     this.canvas = canvas.nativeElement;
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
-      alpha: true, // Transparent background
-      antialias: true // Smooth edges
+      alpha: true,
+      antialias: true
     })
     this.renderer.setSize(window.innerWidth , window.innerHeight);
 
@@ -52,22 +69,15 @@ export class ThreeEngineService {
     );
     this.camera.position.set(0, 2.3, 5)
 
-    if (window.innerWidth >= 1024) {
-      this.camera.position.y = 1.3
-    }
-    // this.camera.rotateX(-0.3)
     this.scene.add(this.camera);
 
-    this.light = new THREE.AmbientLight(0xffffff, 0.03)
+    this.light = new THREE.AmbientLight(0xffffff, 0.1)
     this.light.position.z = 10;
     this.scene.add(this.light)
 
     const pointLight = new THREE.PointLight(0xffffff, 5, 4, 1)
     pointLight.position.set(0, 3, 2);
     this.scene.add(pointLight)
-
-    const lightHelper = new THREE.PointLightHelper(pointLight)
-    // this.scene.add(lightHelper)
 
     const gridHelper = new THREE.GridHelper(50, 50)
     // gridHelper.position.z += 1
@@ -77,31 +87,40 @@ export class ThreeEngineService {
     cube.position.y = 0.25
     this.scene.add(cube);
 
-    this.cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
-    this.torus = new THREE.Mesh(new THREE.TorusGeometry(1.2, 0.03), new THREE.MeshBasicMaterial({ color: 0xffff00 }));
-    this.torus2 = new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.03), new THREE.MeshBasicMaterial({ color: 0xffff00 }));
-    this.cube.position.y = 2
+    this.torus = new THREE.Mesh(new THREE.TorusGeometry(1.2, 0.03), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
+    this.torus2 = new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.03), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
     this.torus.position.y = 2
     this.torus2.position.y = 2
-    this.scene.add(this.cube, this.torus, this.torus2);
+    this.scene.add(this.torus, this.torus2);
     
-    const loader = new FBXLoader();
-    loader.load('/assets/3d/Reload.fbx', (fbx) => {
-      fbx.position.y = 2
-      this.scene.add(fbx)
-    }, undefined, (err) => console.error(err))
-
-    const cube3 = new THREE.Mesh(new THREE.BoxGeometry(4, 4, 4), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
-    cube3.position.set(-15, 2, 17)
-    this.scene.add(cube3)
-
-
-    this.controls = new DragControls([this.cube], this.camera, canvas.nativeElement)
-    this.controls.mode = 'rotate'
-    this.controls.rotateSpeed = 5
-    this.controls.addEventListener('dragstart', () => {
-      this.cubeDragged = true
+    this.loader.load('/assets/3d/logo.glb', (gltf) => {
+      this.logo = gltf.scene     
+      this.logo.position.y = 2
+      this.logo.scale.set(1.5, 1.5, 1.5)
+      this.logo.rotation.y = Math.PI
+      this.scene.add(this.logo)
+    }, undefined, (err) => {
+      console.error(err)
     })
+
+    this.loader.load('/assets/3d/desktop_pc/scene.gltf', (gltf) => {
+      gltf.scene.position.set(-20, 0.5, 15.5)
+      this.scene.add(gltf.scene)
+    }, undefined, (err) => {
+      console.error(err)
+    })
+
+    // const cube3 = new THREE.Mesh(new THREE.BoxGeometry(4, 4, 4), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
+    // cube3.position.set(-15, 2, 17)
+    // this.scene.add(cube3)
+
+
+    // this.controls = new DragControls([this.logo], this.camera, canvas.nativeElement)
+    // this.controls.mode = 'rotate'
+    // this.controls.rotateSpeed = 5
+    // this.controls.addEventListener('dragstart', () => {
+    //   this.logoDragged = true
+    // })
 
     for (let i = 0; i < 1500; i++) {
       this.addStar()
@@ -120,11 +139,17 @@ export class ThreeEngineService {
 
       window.addEventListener('scroll', () => {
         this.moveCamera()
+        // console.log("asd");
+        
       })
 
       window.addEventListener('resize', () => {
         this.resize();
+        // console.log("asd");
+        
       })
+
+      // window.addEventListener('mousemove', this.onMouseMove)
     })
   }
 
@@ -133,13 +158,24 @@ export class ThreeEngineService {
       this.render();
     });
 
-    if (!this.cubeDragged) {
-      this.cube.rotation.y += 0.01;
-    }
+    // if (!this.logoDragged) {
+    //   this.logo.rotation.y += 0.01;
+    // }
+
+    // this.torus.material = new THREE.MeshBasicMaterial({ color: 0x960096 })
     
     this.torus.rotation.set(this.torus.rotation.x += 0.02, this.torus.rotation.y += 0.02, 0)
     this.torus2.rotation.set(this.torus2.rotation.x -= 0.005, this.torus2.rotation.y -= 0.005, 0)
     
+    // this.raycaster.setFromCamera(this.pointer, this.camera);
+    // const intersects = this.raycaster.intersectObjects([this.torus]);
+
+    // if (intersects.length > 1) {
+    //   for (let i = 0; intersects.length; i++) {
+    //     console.log(intersects[i])
+    //   }
+    // }
+
     this.renderer.render(this.scene, this.camera)
   }
 
@@ -178,6 +214,7 @@ export class ThreeEngineService {
 
   private moveCamera() {
     const t = document.body.getBoundingClientRect().top;
+    const b = document.body.getBoundingClientRect().bottom;
 
     // if (this.camera.position.z >= 18) {
     //   this.camera.position.z = 18
@@ -214,17 +251,33 @@ export class ThreeEngineService {
       this.camera.rotation.y = (t + 1300) * -0.005;
       this.camera.position.x = 0
       this.camera.position.z = 17
-      if (this.camera.rotation.y > 1.5708) {
-        this.camera.rotation.y = 1.5708
+      if (this.camera.rotation.y > Math.PI / 2) {
+        this.camera.rotation.y = Math.PI / 2
       }
     } else {
       this.camera.position.x = (t + 1650) * 0.01;
-      this.camera.rotation.y = 1.5708
+      this.camera.rotation.y = Math.PI / 2
       this.camera.position.z = 17
     }
 
-    console.log(this.camera.position.z)
+    // console.log(t + ", " + b)
     // this.camera.position.x = t * -0.0002;
     // this.camera.rotation.y = t * -0.0002;
+
+    if (t != 0) {
+      document.getElementById("scroll")!.style.opacity = (1 + (t / 50)).toString()
+    }
+  }
+
+  private onMouseMove(event: any) {
+    // const pointer = new THREE.Vector2()
+    // const raycaster = new THREE.Raycaster()
+
+    event.preventDefault();
+
+    this.pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+    this.pointer.y = -(event.clientY / window.innerHeight) * 2 - 1;
+
+    // console.log(pointer);
   }
 }
