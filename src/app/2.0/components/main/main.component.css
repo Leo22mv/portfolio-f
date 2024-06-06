@@ -1,0 +1,38 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-bottom: 500vh;
+}
+
+app-home, app-nav-bar, app-works {
+    grid-column: 2 / 12;
+}
+
+@keyframes glowing {
+    0% { background-position: 0; }
+    50% { background-position: 150px; }
+    100% { background-position: 0; }
+}
+  
+@keyframes borderColor {
+    0% {
+        border-color: red;
+        box-shadow: 0 0 10px 1px red;
+    }
+    20% {
+        border-color: red;
+        box-shadow: 0 0 10px 1px red;
+    }
+    40% {
+        border-color: rgb(150, 0, 150);
+        box-shadow: 0 0 10px 1px rgb(150, 0, 150);
+    }
+    60% {
+        border-color: red;
+        box-shadow: 0 0 10px 1px red;
+    }
+    100% {
+        border-color: red;
+        box-shadow: 0 0 10px 1px red;
+    }
+}

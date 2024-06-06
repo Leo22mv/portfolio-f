@@ -10,8 +10,8 @@ import { OneComponent } from './componentes/paginas/educacion/detalles/one/one.c
 import { ApComponent } from './componentes/paginas/educacion/detalles/ap/ap.component';
 import { ObComponent } from './componentes/paginas/educacion/detalles/ob/ob.component';
 import { OldVersionComponent } from './old-version/old-version.component';
-import { HomeComponent } from './2.0/components/pages/home/home.component';
 import { UtnComponent } from './componentes/paginas/educacion/detalles/utn/utn.component';
+import { MainComponent } from './2.0/components/main/main.component';
 
 const routes: Routes = [
   {path: "old_version", component: OldVersionComponent, children: [
@@ -27,9 +27,9 @@ const routes: Routes = [
     {path: "**", component: Error404Component}
   ]},
 
-  {path: "home", component: HomeComponent},
+  {path: "2.0", component: MainComponent},
 
-  {path: "", redirectTo: "/old_version/inicio", pathMatch: "full"},
+  {path: "", redirectTo: "/2.0", pathMatch: "full"},
   {path: "**", redirectTo: "/old_version/**", pathMatch: "full"}
 ];
 

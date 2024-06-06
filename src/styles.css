@@ -2,8 +2,33 @@
     background-color: #f3f3f3;
 } */
 .textoLight {
-    color: #212529;
-  }
-  .textoDark {
-    color: #f3f3f3;
-  }
+  color: #212529;
+}
+.textoDark {
+  color: #f3f3f3;
+}
+
+.sign {
+color: white;
+background-color: rgba(40, 10, 10, 0.5);
+text-align: center;
+border-radius: 20px;
+backdrop-filter: blur(1.5px);
+padding: 10px;
+border: 3px red double;
+animation: borderColor 8s infinite;
+}
+
+@font-face {
+  font-family: 'Kenvector Future';
+  src: url('assets/fonts/kenvector_future.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Kenvector Future Thin';
+  src: url('assets/fonts/kenvector_future_thin.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}

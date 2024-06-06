@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5vh;
+    flex-wrap: wrap;
+    grid-column: 2 / 12;
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        flex-direction: column;
+    }
+}
+.btn {
+    border: 3px double #500;
+    /* border: 3px solid; */
+    border-radius: 25px;
+    color: #bbb;
+    padding: 8px 24px 8px 24px;
+    transition: .1s all;
+    background-color: rgba(255, 255, 255, .1);
+    width: 150px;
+    /* border-image: linear-gradient(45deg, #550000, #660066, #550000) 1; */
+    /* border-image- : 150px; */
+    /* animation: glowing 5s linear infinite; */
+    /* transition: opacity .3s ease-in-out; */
+    margin: 5px;
+    font-family: 'Kenvector Future Thin';
+}
+.btn:hover {
+    background-color: rgba(255, 255, 255, .2);
+    border-color: white;
+    box-shadow: 0 0 5px 1px white;
+    color: white;
+}
+.btn:focus {
+    outline: none;
+}
+.btn:active {
+    background-color: rgba(255, 255, 255, .5);
+}

@@ -1,15 +1,10 @@
-main {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    margin-bottom: 500vh;
-}
 .title {
     margin-top: 5vh;
     /* margin-bottom: 1800px; */
 }
 .presentation {
-    margin-top: 100vh;
-    margin-bottom: 5vh;
+    margin-top: 95vh;
+    /* margin-bottom: 5vh; */
 }
 
 h1 {
@@ -29,41 +24,6 @@ p {
     position: fixed;
     bottom: 0;
     right: 0;
-}
-
-.title, .presentation {
-    grid-column: 2 / 12;
-    color: white;
-    background-color: rgba(40, 10, 10, 0.5);
-    text-align: center;
-    border-radius: 20px;
-    backdrop-filter: blur(1.5px);
-    padding: 10px;
-    border: 3px red double;
-    animation: borderColor 8s infinite;
-}
-  
-@keyframes borderColor {
-    0% {
-        border-color: red; /* Color inicial del borde */
-        box-shadow: 0 0 10px 1px red;
-    }
-    20% {
-        border-color: red; /* Color inicial del borde */
-        box-shadow: 0 0 10px 1px red;
-    }
-    40% {
-        border-color: rgb(150, 0, 150); /* Nuevo color del borde */
-        box-shadow: 0 0 10px 1px rgb(150, 0, 150);
-    }
-    60% {
-        border-color: red; /* Color inicial del borde */
-        box-shadow: 0 0 10px 1px red;
-    }
-    100% {
-        border-color: red; /* Color inicial del borde */
-        box-shadow: 0 0 10px 1px red;
-    }
 }
 
 .mouse_scroll {
@@ -208,18 +168,4 @@ p {
   0%   { opacity: 0; }
   50%  { opacity: .5; }
   100% { opacity: 1; }
-}
-
-@font-face {
-    font-family: 'Kenvector Future';
-    src: url('../../../../../assets/fonts/kenvector_future.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Kenvector Future Thin';
-    src: url('../../../../../assets/fonts/kenvector_future_thin.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
 }

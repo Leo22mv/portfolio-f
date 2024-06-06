@@ -37,6 +37,9 @@ export class ThreeEngineService implements OnInit, OnDestroy{
 
   private boxShadow: string = ""
 
+  private scrollUpVisible: boolean = false
+  private scrollUpVulnerable: boolean = true
+
   constructor(private ngZone: NgZone) { }
 
   public ngOnInit() {
@@ -80,8 +83,10 @@ export class ThreeEngineService implements OnInit, OnDestroy{
     this.scene.add(pointLight)
 
     const gridHelper = new THREE.GridHelper(50, 50)
-    // gridHelper.position.z += 1
-    this.scene.add(gridHelper)
+    const gridHelper2 = new THREE.GridHelper(50, 50)
+    gridHelper2.position.set(0, -25, 25)
+    gridHelper2.rotation.x = Math.PI / 2
+    this.scene.add(gridHelper, gridHelper2)
 
     const cube = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.5, 40, 1, false), new THREE.MeshStandardMaterial({ color: 0xffffff })); // , wireframe: true }));
     cube.position.y = 0.25
@@ -240,33 +245,48 @@ export class ThreeEngineService implements OnInit, OnDestroy{
     //   }
     // }
 
-    if (t >= -1300) {
-      this.camera.position.z = 5 + t * -0.01;
-      this.camera.rotation.y = 0
-      this.camera.position.x = 0
-      if (this.camera.position.z > 17) {
-        this.camera.position.z = 17
-      }
-    } else if (t >= -1650) {
-      this.camera.rotation.y = (t + 1300) * -0.005;
-      this.camera.position.x = 0
-      this.camera.position.z = 17
-      if (this.camera.rotation.y > Math.PI / 2) {
-        this.camera.rotation.y = Math.PI / 2
-      }
-    } else {
-      this.camera.position.x = (t + 1650) * 0.01;
-      this.camera.rotation.y = Math.PI / 2
-      this.camera.position.z = 17
-    }
+    const navBarPosition = window.innerHeight / 100 * 102.5 + document.getElementsByClassName('title')[0].scrollHeight + 12 + document.getElementsByClassName('presentation')[0].scrollHeight
+    const worksPosition = navBarPosition + document.getElementsByClassName('navbar')[0].scrollHeight + 6 + window.innerHeight / 100 * 100
+    
 
-    // console.log(t + ", " + b)
-    // this.camera.position.x = t * -0.0002;
-    // this.camera.rotation.y = t * -0.0002;
+    if (t >= -navBarPosition) {
+      this.camera.position.z = 5 + (25 / navBarPosition * Math.abs(t));
+      if (this.camera.position.z > 30) {
+        this.camera.position.z = 30
+      }
+    } else 
+    if (t >= -worksPosition) 
+      {
+      this.camera.position.z = 30
+      this.camera.position.y = 2.3 + (t + navBarPosition) * 0.0123
+    }
 
     if (t != 0) {
       document.getElementById("scroll")!.style.opacity = (1 + (t / 50)).toString()
+      if (t <= -worksPosition) {
+        if (!this.scrollUpVisible && this.scrollUpVulnerable) {
+          this.scrollUpVulnerable = false
+          document.getElementById("scroll-up")!.style.animation = "show 0.5s"
+          document.getElementById("scroll-up")!.style.display = "block"
+          setTimeout(() => {
+            document.getElementById("scroll-up")!.style.animation = "borderColor 8s infinite"
+            this.scrollUpVulnerable = true
+          }, 500);
+          this.scrollUpVisible = true
+        }
+      } else {
+        if (this.scrollUpVisible && this.scrollUpVulnerable) {
+          this.scrollUpVulnerable = false
+          document.getElementById("scroll-up")!.style.animation = "hide 0.5s"
+          setTimeout(() => {
+            document.getElementById("scroll-up")!.style.display = "none"
+            this.scrollUpVulnerable = true
+          }, 500);
+          this.scrollUpVisible = false
+        }
+      }
     }
+    
   }
 
   private onMouseMove(event: any) {

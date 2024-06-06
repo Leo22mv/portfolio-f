@@ -20,6 +20,10 @@ import { OldVersionComponent } from './old-version/old-version.component';
 import { HomeComponent } from './2.0/components/pages/home/home.component';
 import { ThreeEngineComponent } from './2.0/components/three-engine/three-engine.component';
 import { UtnComponent } from './componentes/paginas/educacion/detalles/utn/utn.component';
+import { MainComponent } from './2.0/components/main/main.component';
+import { NavBarComponent } from './2.0/components/nav-bar/nav-bar.component';
+import { WorksComponent } from './2.0/components/pages/works/works.component';
+import { ScrollUpComponent } from './2.0/components/scroll-up/scroll-up.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { UtnComponent } from './componentes/paginas/educacion/detalles/utn/utn.c
     OldVersionComponent,
     HomeComponent,
     ThreeEngineComponent,
-    UtnComponent
+    UtnComponent,
+    MainComponent,
+    NavBarComponent,
+    WorksComponent,
+    ScrollUpComponent
   ],
   imports: [
     BrowserModule,

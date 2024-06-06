@@ -19,5 +19,4 @@ export class HomeComponent implements OnInit {
   // public renderer = new THREE.WebGLRenderer();
   // renderer.setSize( window.innerWidth, window.innerHeight );
   // document.body.appendChild( renderer.domElement );
-
 }

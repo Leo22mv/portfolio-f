@@ -1,0 +1,11 @@
+Model Information:
+* title:	Monitor - SCP
+* source:	https://sketchfab.com/3d-models/monitor-scp-a21bd4eed2c642eaa7e702269f47b002
+* author:	Maxime66410 (https://sketchfab.com/Maxime66410)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Monitor - SCP" (https://sketchfab.com/3d-models/monitor-scp-a21bd4eed2c642eaa7e702269f47b002) by Maxime66410 (https://sketchfab.com/Maxime66410) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

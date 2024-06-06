@@ -10,6 +10,15 @@ export class ProyectosComponent implements OnInit {
 
   listaProyectos: IProyecto[] = [
     {
+      urlImagen: "../../../../../assets/img/newPortfolio.jpg",
+      nombre: "Portfolio nuevo",
+      descripcion: "Nuevo portfolio web que será el reemplazo del actual. Desarrollado con Angular, utilizando la librería Three.js",
+      tecnologias: ["angular"],
+      link: "https://leomartinez.dev.ar/2.0",
+      repo: "https://github.com/Leo22mv/portfolio-f",
+      estado: "En desarrollo (En línea)"
+    },
+    {
       urlImagen: "../../../../../assets/img/synth.jpeg",
       nombre: "Simulador de sintetizadores",
       descripcion: "Simulador que permite mezclar 2 sintetizadores de un oscilador cada uno, con sus respectivas envolventes. Desarrollado con Angular a través de la librería Tone.js",
