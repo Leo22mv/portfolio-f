@@ -29,7 +29,7 @@ const routes: Routes = [
 
   {path: "2.0", component: MainComponent},
 
-  {path: "", redirectTo: "/2.0", pathMatch: "full"},
+  {path: "", redirectTo: "/old_version/inicio", pathMatch: "full"},
   {path: "**", redirectTo: "/old_version/**", pathMatch: "full"}
 ];
 
