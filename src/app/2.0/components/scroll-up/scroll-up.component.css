@@ -11,6 +11,7 @@ span {
     right: 15px;
     display: none;
     cursor: pointer;
+    z-index: 1;
 }
 .arrow {
     border: solid white;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThreeEngineService } from '../../services/three-engine.service';
 
 @Component({
   selector: 'app-scroll-up',
@@ -13,7 +14,10 @@ export class ScrollUpComponent implements OnInit {
   }
 
   public scrollUp() {
-    scrollTo(0, 0)
+    scrollTo({
+      behavior: 'smooth',
+      top: window.innerHeight / 100 * 102.5 + document.getElementsByClassName('title')[0].scrollHeight + 12 + document.getElementsByClassName('presentation')[0].scrollHeight
+    })
   }
 
 }

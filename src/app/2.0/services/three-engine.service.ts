@@ -23,6 +23,8 @@ export class ThreeEngineService implements OnInit, OnDestroy{
   private torus!: THREE.Mesh;
   private torus2!: THREE.Mesh;
 
+  private cube!: THREE.Mesh;
+
   private frameId!: number;
 
   private limit!: number;
@@ -39,6 +41,10 @@ export class ThreeEngineService implements OnInit, OnDestroy{
 
   private scrollUpVisible: boolean = false
   private scrollUpVulnerable: boolean = true
+
+  private draggableList: any = []
+
+  private raycastableList: any = []
 
   constructor(private ngZone: NgZone) { }
 
@@ -74,13 +80,17 @@ export class ThreeEngineService implements OnInit, OnDestroy{
 
     this.scene.add(this.camera);
 
-    this.light = new THREE.AmbientLight(0xffffff, 0.1)
+    this.light = new THREE.AmbientLight(0xffffff, 0.3)
+    // this.light = new THREE.AmbientLight(0xffffff, 5)
     this.light.position.z = 10;
     this.scene.add(this.light)
 
     const pointLight = new THREE.PointLight(0xffffff, 5, 4, 1)
+    const pointLight2 = new THREE.PointLight(0xffffff, 10, 5, 0)
     pointLight.position.set(0, 3, 2);
+    pointLight2.position.set(0, -7.5, 27);
     this.scene.add(pointLight)
+    this.scene.add(pointLight2)
 
     const gridHelper = new THREE.GridHelper(50, 50)
     const gridHelper2 = new THREE.GridHelper(50, 50)
@@ -88,9 +98,9 @@ export class ThreeEngineService implements OnInit, OnDestroy{
     gridHelper2.rotation.x = Math.PI / 2
     this.scene.add(gridHelper, gridHelper2)
 
-    const cube = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.5, 40, 1, false), new THREE.MeshStandardMaterial({ color: 0xffffff })); // , wireframe: true }));
-    cube.position.y = 0.25
-    this.scene.add(cube);
+    this.cube = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.5, 40, 1, false), new THREE.MeshStandardMaterial({ color: 0xffffff })); // , wireframe: true }));
+    this.cube.position.y = 0.25
+    this.scene.add(this.cube);
 
     this.torus = new THREE.Mesh(new THREE.TorusGeometry(1.2, 0.03), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
     this.torus2 = new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.03), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
@@ -104,13 +114,16 @@ export class ThreeEngineService implements OnInit, OnDestroy{
       this.logo.scale.set(1.5, 1.5, 1.5)
       this.logo.rotation.y = Math.PI
       this.scene.add(this.logo)
+      this.draggableList.push(this.logo)
     }, undefined, (err) => {
       console.error(err)
     })
 
-    this.loader.load('/assets/3d/desktop_pc/scene.gltf', (gltf) => {
-      gltf.scene.position.set(-20, 0.5, 15.5)
+    this.loader.load('/assets/3d/monitor/scene.glb', (gltf) => {
+      gltf.scene.position.set(0, -8, 25)
+      gltf.scene.rotation.y = Math.PI
       this.scene.add(gltf.scene)
+      this.raycastableList.push(gltf.scene)
     }, undefined, (err) => {
       console.error(err)
     })
@@ -120,9 +133,9 @@ export class ThreeEngineService implements OnInit, OnDestroy{
     // this.scene.add(cube3)
 
 
-    // this.controls = new DragControls([this.logo], this.camera, canvas.nativeElement)
-    // this.controls.mode = 'rotate'
-    // this.controls.rotateSpeed = 5
+    this.controls = new DragControls(this.draggableList, this.camera, canvas.nativeElement)
+    this.controls.mode = 'rotate'
+    this.controls.rotateSpeed = 5
     // this.controls.addEventListener('dragstart', () => {
     //   this.logoDragged = true
     // })
@@ -154,7 +167,26 @@ export class ThreeEngineService implements OnInit, OnDestroy{
         
       })
 
-      // window.addEventListener('mousemove', this.onMouseMove)
+      // window.addEventListener('mousemove', (event) => {
+      //   this.pointer = new THREE.Vector2()
+      //   this.raycaster = new THREE.Raycaster()
+
+      //   event.preventDefault();
+
+      //   this.pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+      //   this.pointer.y = -(event.clientY / window.innerHeight) * 2 - 1;
+
+      //   this.raycaster.setFromCamera(this.pointer, this.camera);
+      //   const intersects = this.raycaster.intersectObjects(this.scene.children);
+      //   // console.log(intersects)
+
+      //   // if (intersects.length > 1) {
+      //   //   for (let i = 0; intersects.length; i++) {
+      //   //     console.log(intersects[i].object)
+      //   //     this.camera.rotation.z += .1
+      //   //   }
+      //   // }
+      // })
     })
   }
 
@@ -163,23 +195,14 @@ export class ThreeEngineService implements OnInit, OnDestroy{
       this.render();
     });
 
-    // if (!this.logoDragged) {
-    //   this.logo.rotation.y += 0.01;
-    // }
+    if (!this.logoDragged) {
+      // this.logo.rotation.y += 0.01;
+    }
 
     // this.torus.material = new THREE.MeshBasicMaterial({ color: 0x960096 })
     
     this.torus.rotation.set(this.torus.rotation.x += 0.02, this.torus.rotation.y += 0.02, 0)
     this.torus2.rotation.set(this.torus2.rotation.x -= 0.005, this.torus2.rotation.y -= 0.005, 0)
-    
-    // this.raycaster.setFromCamera(this.pointer, this.camera);
-    // const intersects = this.raycaster.intersectObjects([this.torus]);
-
-    // if (intersects.length > 1) {
-    //   for (let i = 0; intersects.length; i++) {
-    //     console.log(intersects[i])
-    //   }
-    // }
 
     this.renderer.render(this.scene, this.camera)
   }
@@ -255,9 +278,10 @@ export class ThreeEngineService implements OnInit, OnDestroy{
         this.camera.position.z = 30
       }
     } else 
-    if (t >= -worksPosition) 
+    // if (t >= -worksPosition) 
       {
       this.camera.position.z = 30
+      // this.camera.position.y = 2.3 + (t + navBarPosition) * (window.innerHeight / 1000) * 0.0123
       this.camera.position.y = 2.3 + (t + navBarPosition) * 0.0123
     }
 
@@ -287,17 +311,5 @@ export class ThreeEngineService implements OnInit, OnDestroy{
       }
     }
     
-  }
-
-  private onMouseMove(event: any) {
-    // const pointer = new THREE.Vector2()
-    // const raycaster = new THREE.Raycaster()
-
-    event.preventDefault();
-
-    this.pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    this.pointer.y = -(event.clientY / window.innerHeight) * 2 - 1;
-
-    // console.log(pointer);
   }
 }

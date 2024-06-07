@@ -1,7 +1,6 @@
 main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    margin-bottom: 500vh;
 }
 
 app-home, app-nav-bar, app-works {

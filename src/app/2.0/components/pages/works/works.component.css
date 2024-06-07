@@ -1,6 +1,16 @@
-div {
+.title {
     margin-top: 100vh;
 }
 h1 {
     font-family: 'Kenvector Future';
+}
+h2 {
+    font-family: 'Kenvector Future Thin';
+}
+.first {
+    margin-top: 400px;
+}
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
 }

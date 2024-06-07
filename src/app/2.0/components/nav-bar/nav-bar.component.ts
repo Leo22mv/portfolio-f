@@ -20,7 +20,6 @@ export class NavBarComponent implements OnInit {
   private updatePositions() {
     this.navBarPosition = window.innerHeight / 100 * 102.5 + document.getElementsByClassName('title')[0].scrollHeight + 12 + document.getElementsByClassName('presentation')[0].scrollHeight
     this.worksPosition = this.navBarPosition + document.getElementsByClassName('navbar')[0].scrollHeight + 6 + window.innerHeight / 100 * 100
-    console.log(this.navBarPosition + ", " + this.worksPosition);
   }
 
   public scrollToNav() {
