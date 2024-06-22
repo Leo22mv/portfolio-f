@@ -24,6 +24,7 @@ import { MainComponent } from './2.0/components/main/main.component';
 import { NavBarComponent } from './2.0/components/nav-bar/nav-bar.component';
 import { WorksComponent } from './2.0/components/pages/works/works.component';
 import { ScrollUpComponent } from './2.0/components/scroll-up/scroll-up.component';
+import { LogoComponent } from './2.0/components/pages/home/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ScrollUpComponent } from './2.0/components/scroll-up/scroll-up.componen
     MainComponent,
     NavBarComponent,
     WorksComponent,
-    ScrollUpComponent
+    ScrollUpComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

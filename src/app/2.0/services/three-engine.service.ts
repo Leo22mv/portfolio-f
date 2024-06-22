@@ -80,23 +80,31 @@ export class ThreeEngineService implements OnInit, OnDestroy{
 
     this.scene.add(this.camera);
 
-    this.light = new THREE.AmbientLight(0xffffff, 0.3)
-    // this.light = new THREE.AmbientLight(0xffffff, 5)
-    this.light.position.z = 10;
-    this.scene.add(this.light)
+    // this.light = new THREE.AmbientLight(0xffffff, 0.3)
+    // // this.light = new THREE.AmbientLight(0xffffff, 5)
+    // this.light.position.z = 10;
+    // this.scene.add(this.light)
 
     const pointLight = new THREE.PointLight(0xffffff, 5, 4, 1)
-    const pointLight2 = new THREE.PointLight(0xffffff, 10, 5, 0)
+    // const pointLight2 = new THREE.PointLight(0xffffff, 10, 5, 0)
     pointLight.position.set(0, 3, 2);
-    pointLight2.position.set(0, -7.5, 27);
+    // pointLight2.position.set(0, -7.5, 27);
     this.scene.add(pointLight)
-    this.scene.add(pointLight2)
+    // this.scene.add(pointLight2)
 
-    const gridHelper = new THREE.GridHelper(50, 50)
-    const gridHelper2 = new THREE.GridHelper(50, 50)
-    gridHelper2.position.set(0, -25, 25)
-    gridHelper2.rotation.x = Math.PI / 2
-    this.scene.add(gridHelper, gridHelper2)
+    const grids = []
+    for (let i = 0; i < 12; i++) {
+      grids.push(new THREE.GridHelper(10, 10))
+    }
+    grids[1].position.set(0, -5, 5)
+    grids[1].rotation.x = Math.PI / 2
+    grids[2].position.set(0, -20, 5)
+    grids[2].rotation.x = Math.PI / 2
+    grids[3].position.set(0, -25, 0)
+    // grids[4].rotation.z = Math.PI / 2
+    // grids[4].position.set(5, -5, 0)
+    // grids[6].position.set(0, -10, 0)
+    grids.forEach((grid) => { this.scene.add(grid) })
 
     this.cube = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.5, 40, 1, false), new THREE.MeshStandardMaterial({ color: 0xffffff })); // , wireframe: true }));
     this.cube.position.y = 0.25
@@ -114,28 +122,28 @@ export class ThreeEngineService implements OnInit, OnDestroy{
       this.logo.scale.set(1.5, 1.5, 1.5)
       this.logo.rotation.y = Math.PI
       this.scene.add(this.logo)
-      this.draggableList.push(this.logo)
+      // this.draggableList.push(this.logo)
     }, undefined, (err) => {
-      console.error(err)
+      // console.error(err)
     })
 
-    this.loader.load('/assets/3d/monitor/scene.glb', (gltf) => {
-      gltf.scene.position.set(0, -8, 25)
-      gltf.scene.rotation.y = Math.PI
-      this.scene.add(gltf.scene)
-      this.raycastableList.push(gltf.scene)
-    }, undefined, (err) => {
-      console.error(err)
-    })
+    // this.loader.load('/assets/3d/monitor/scene.glb', (gltf) => {
+    //   gltf.scene.position.set(0, -8, 25)
+    //   gltf.scene.rotation.y = Math.PI
+    //   this.scene.add(gltf.scene)
+    //   this.raycastableList.push(gltf.scene)
+    // }, undefined, (err) => {
+    //   console.error(err)
+    // })
 
     // const cube3 = new THREE.Mesh(new THREE.BoxGeometry(4, 4, 4), new THREE.MeshStandardMaterial({ color: 0xff0000 }));
     // cube3.position.set(-15, 2, 17)
     // this.scene.add(cube3)
 
 
-    this.controls = new DragControls(this.draggableList, this.camera, canvas.nativeElement)
-    this.controls.mode = 'rotate'
-    this.controls.rotateSpeed = 5
+    // this.controls = new DragControls(this.draggableList, this.camera, canvas.nativeElement)
+    // this.controls.mode = 'rotate'
+    // this.controls.rotateSpeed = 5
     // this.controls.addEventListener('dragstart', () => {
     //   this.logoDragged = true
     // })
@@ -241,6 +249,7 @@ export class ThreeEngineService implements OnInit, OnDestroy{
   
 
   private moveCamera() {
+    console.log(this.camera.position.y)
     const t = document.body.getBoundingClientRect().top;
     const b = document.body.getBoundingClientRect().bottom;
 
@@ -277,12 +286,20 @@ export class ThreeEngineService implements OnInit, OnDestroy{
       if (this.camera.position.z > 30) {
         this.camera.position.z = 30
       }
+      this.camera.rotation.z = 0
     } else 
-    // if (t >= -worksPosition) 
+    if (t >= -worksPosition) 
       {
       this.camera.position.z = 30
-      // this.camera.position.y = 2.3 + (t + navBarPosition) * (window.innerHeight / 1000) * 0.0123
-      this.camera.position.y = 2.3 + (t + navBarPosition) * 0.0123
+      this.camera.position.y = 2.3 - (7.3 / (worksPosition - navBarPosition) * Math.abs(t + navBarPosition))
+      // else {
+      //   this.camera.position.y = -5
+      // }
+      this.camera.rotation.z = (Math.PI / 2) / (worksPosition - navBarPosition) * Math.abs(t + navBarPosition)
+    }
+    else {
+      this.camera.rotation.z = (Math.PI / 2)
+      this.camera.position.y = -5 + (-10 / (b + worksPosition) * Math.abs(t + worksPosition))
     }
 
     if (t != 0) {
