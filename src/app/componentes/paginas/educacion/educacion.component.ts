@@ -24,7 +24,7 @@ export class EducacionComponent implements OnInit {
     {
       nombre: "Argentina Programa",
       descripcion: "Desarrollo web fullstack",
-      link: "https://seprogramar.inti.gob.ar/inti/certificates/verify/RTYu-gd8MAb6t7HI",
+      link: "https://drive.google.com/file/d/1X0j4lFTBh9n7tCldK8Y9iP-glaJ25iie/view?usp=sharing",
       detalles: "ap"
     }
   ]
