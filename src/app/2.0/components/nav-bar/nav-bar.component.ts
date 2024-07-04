@@ -23,6 +23,7 @@ export class NavBarComponent implements OnInit {
   }
 
   public scrollToNav() {
+    this.updatePositions()
     scrollTo({
       behavior: 'smooth',
       top: this.navBarPosition
@@ -30,6 +31,7 @@ export class NavBarComponent implements OnInit {
   }
 
   public scrollToWorks() {
+    this.updatePositions()
     scrollTo({
       behavior: 'smooth',
       top: this.worksPosition
